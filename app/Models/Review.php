@@ -1,6 +1,8 @@
 <?php 
 namespace App\Models;
 
+use App\Database;
+
 class Review
 {
     protected $id;
@@ -48,6 +50,16 @@ class Review
 
     public function read(int $id)
     {
+        $db = new Database;
+        $sql = "SELECT * FROM `votes` WHERE id = $id";
+        $data = $db->select($sql);
+        
+        $this->setName($data['client_name']);
+        $this->setAddress($data['address']);
+        $this->setPhone($data['phone']);
+        die;
+        
+
     }
 
 

@@ -33,7 +33,15 @@ class ComposerStaticInit17e09fc29f025296e386f2b7520d84a7
     );
 
     public static $classMap = array (
-        'App\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Controllers/ProductController.php',
+        'App\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Controllers/PageController.php',
+        'App\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Controllers/ReviewController.php',
+        'App\\Controllers\\ReservationController' => __DIR__ . '/../..' . '/app/Controllers/ReservationController.php',
+        'App\\Controllers\\RestaurantController' => __DIR__ . '/../..' . '/app/Controllers/RestaurantController.php',
+        'App\\Database' => __DIR__ . '/../..' . '/app/Db.php',
+        'App\\Models\\Reservation' => __DIR__ . '/../..' . '/app/Models/Reservation.php',
+        'App\\Models\\Restaurant' => __DIR__ . '/../..' . '/app/Models/Restaurant.php',
+        'App\\Models\\Review' => __DIR__ . '/../..' . '/app/Models/Review.php',
+        'App\\Router' => __DIR__ . '/../..' . '/app/Router.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 

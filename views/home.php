@@ -1,3 +1,15 @@
+<?php
+
+use App\Models\Review;
+
+$review = new Review;
+$review->read(1);
+echo $review;
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +23,9 @@
     
     <a href="<?= $routeToRestaurant;?>">Vai al ristorante</a>
     <a href="<?= $routeToReview; ?>">Vai al prodotto</a>
-    <a href="<?= $routeToReservation;?>">Vai al ristorante</a>
+    <a href="<?= $routeToReservation;?>">Vai al Reservation</a>
+
+   
     
 
 </body>
