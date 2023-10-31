@@ -10,6 +10,9 @@
     <h3>Vai al ristorante</h3>
     
     <a href="<?= $routeToRestaurant;?>">Vai al ristorante</a>
-    <a href="<?= $routeToProduct; ?>">Vai al prodotto</a>
+    <a href="<?= $routeToReview; ?>">Vai al prodotto</a>
+    <a href="<?= $routeToReservation;?>">Vai al ristorante</a>
+    
+
 </body>
 </html>

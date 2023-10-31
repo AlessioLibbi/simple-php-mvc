@@ -8,10 +8,8 @@ use Symfony\Component\Routing\RouteCollection;
 class ReservationController
 {
     // Show the product attributes based on the id.
-    public function showRestaurant(int $id, RouteCollection $routes)
+    public function showReservation(int $id, RouteCollection $routes)
     {
-
-        
         $restaurant = new Reservation();
         $restaurant->read($id);
 
