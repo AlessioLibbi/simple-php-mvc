@@ -1,6 +1,6 @@
 <?php 
 namespace App\Models;
-
+use App\Database;
 class Reservation
 {
     protected $id;
@@ -43,6 +43,10 @@ class Reservation
         $this->hour = $hour;
     }
 
+    public function setNPeople(string $n_people) {
+        $this->n_people = $n_people;
+    }
+
  
     // CRUD OPERATIONS
     public function create(array $data)
@@ -52,6 +56,15 @@ class Reservation
 
     public function read(int $id)
     {
+        $db = new Database;
+        $sql = "SELECT * FROM `prenotations` WHERE id = $id";
+        $data = $db->select($sql);
+        
+        $this->setName($data[0]['client_name']);
+        $this->setPrenotation($data[0]['prenotation_date']);
+        $this->setHour($data[0]['hour']);
+        $this->setNPeople($data[0]['n_people']);
+        
         
    
 

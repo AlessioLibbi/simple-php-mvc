@@ -1,10 +1,6 @@
 <?php
 
-use App\Models\Review;
 
-$review = new Review;
-$review->read(1);
-echo $review;
 
 ?>
 
@@ -22,7 +18,7 @@ echo $review;
     <h3>Vai al ristorante</h3>
     
     <a href="<?= $routeToRestaurant;?>">Vai al ristorante</a>
-    <a href="<?= $routeToReview; ?>">Vai al prodotto</a>
+    <a href="<?= $routeToReview; ?>">Vai alla Review</a>
     <a href="<?= $routeToReservation;?>">Vai al Reservation</a>
 
    

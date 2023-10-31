@@ -53,11 +53,10 @@ class Review
         $db = new Database;
         $sql = "SELECT * FROM `votes` WHERE id = $id";
         $data = $db->select($sql);
+        $this->setName($data[0]['client_name']);
+        $this->setAddress($data[0]['vote']);
+        $this->setPhone($data[0]['comment']);
         
-        $this->setName($data['client_name']);
-        $this->setAddress($data['address']);
-        $this->setPhone($data['phone']);
-        die;
         
 
     }

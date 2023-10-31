@@ -15,13 +15,14 @@
 <body>
 
     <section>
-        <h1>My Product:</h1>
+        <h1>My Reservetion:</h1>
         <ul>
-            <li><?php echo $product->getTitle(); ?></li>
-            <li><?php echo $product->getDescription(); ?></li>
-            <li><?php echo $product->getPrice(); ?></li>
-            <li><?php echo $product->getSku(); ?></li>
-            <li><?php echo $product->getImage(); ?></li>
+            <li><?php echo $reservation->getName(); ?></li>
+            <li><?php echo $reservation->getPrenotation(); ?></li>
+            <li><?php echo $reservation->getHour(); ?></li>
+            <li><?php echo $reservation->getNPeople(); ?></li>
+          
+            
         </ul>
         <a href="<?php echo $routes->get('homepage')->getPath(); ?>">Back to homepage</a>
     <section>

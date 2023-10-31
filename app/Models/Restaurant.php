@@ -1,6 +1,6 @@
 <?php 
 namespace App\Models;
-
+use App\Database;
 class Restaurant
 {
     protected $id;
@@ -54,19 +54,16 @@ class Restaurant
 
     public function read(int $id)
     {
-        $this->name = 'Ristorante da Mario';
-        $this->address = 'Via Roma, 123';
-        $this->phone = '+39 123 456789';
-        $this->opening_time = 
-            '{"lunedì" : "09:00 - 22:00",
-            "martedì" : "09:00 - 22:00",
-            "mercoledì" : "09:00 - 22:00",
-            "giovedì" : "09:00 - 22:00",
-            "venerdì" : "09:00 - 23:00",
-            "sabato" : "10:00 - 23:00",
-            "domenica" : "10:00 - 21:00"
-            }';
-            return $this;
+        $db = new Database;
+        $sql = "SELECT * FROM `restaurant` WHERE id = $id";
+        $data = $db->select($sql);
+        
+        $this->setName($data[0]['name']);
+        $this->setAddress($data[0]['address']);
+        $this->setPhone($data[0]['phone']);
+        $this->setTime($data[0]['opening_time']);
+       
+        
     }
 
 
