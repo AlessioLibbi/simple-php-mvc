@@ -107,7 +107,7 @@ class Restaurant
 
     public function delete(int $id)
     {
-
+        $sqlDelete = "DELETE * FROM `restaurant` WHERE id = $id";
     }
 
 }

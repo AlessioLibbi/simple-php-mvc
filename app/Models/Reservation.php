@@ -106,7 +106,7 @@ class Reservation
 
     public function delete(int $id)
     {
-
+        $sqlDelete = "DELETE * FROM `prenotation` WHERE id = $id";
     }
 
 }

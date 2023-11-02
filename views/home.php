@@ -4,6 +4,13 @@ use App\Models\Reservation;
 use App\Models\Restaurant;
 $reservation = new Reservation;
 $reservation->read(1);
+$restaurant = new Restaurant;
+$restaurant->read(1);
+var_dump($reservation);
+echo "<br>";
+echo "<br>";
+var_dump($restaurant);
+
 
 
 
