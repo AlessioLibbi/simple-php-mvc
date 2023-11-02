@@ -1,5 +1,11 @@
 <?php
 
+use App\Models\Reservation;
+use App\Models\Restaurant;
+$reservation = new Reservation;
+$reservation->read(1);
+
+
 
 
 ?>

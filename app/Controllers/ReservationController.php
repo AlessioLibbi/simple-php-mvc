@@ -15,6 +15,8 @@ class ReservationController
 
         require_once APP_ROOT . '/views/reservation.php';
     }
-   
+    public function updateReservation(int $id, RouteCollection $routes) {
+        $review = new Reservation;
+    }
   
 }

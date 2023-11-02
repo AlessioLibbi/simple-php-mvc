@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Reservation;
 use App\Models\Review;
 use Symfony\Component\Routing\RouteCollection;
 
@@ -15,6 +16,8 @@ class ReviewController
         
         require_once APP_ROOT . '/views/review.php';
     }
-   
+   public function updateReservation(int $id, RouteCollection $routes) {
+    $review = new Reservation;
+   }
   
 }

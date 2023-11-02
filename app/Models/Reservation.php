@@ -1,6 +1,8 @@
 <?php 
 namespace App\Models;
 use App\Database;
+use Exception;
+
 class Reservation
 {
     protected $id;
@@ -30,6 +32,12 @@ class Reservation
     }
 
     // SET METHOD
+    public function setId(int $id) {
+        $this->id = $id;
+    }
+
+
+
     public function setName(string $client_name) {
         $this->client_name = $client_name;
 
@@ -49,9 +57,32 @@ class Reservation
 
  
     // CRUD OPERATIONS
-    public function create(array $data)
-    {
-
+    public function save(array $data = null) {
+        try {
+            $origin = array(
+                'id'=>$this->id,
+                'client_name'=>$this->client_name,
+                'prenotation_date'=> $this->prenotation_date,
+                'hour' => $this->hour,
+                'n_people'=> $this->n_people, 
+            );
+            var_dump($origin);
+            if(isset($data['id'])) {
+                unset($data['id']);
+            }
+            $params = array_merge($origin, $data);
+            var_dump($params);
+            $db = new Database;
+            if($params['id']) {
+                $sqlUpdate = "UPDATE `prenotations` SET name = '" . $params['client_name'] . "' , prenotation_date = '" . $params['prenotation_date'] . "' , hour = '" . $params['hour'] . "' , n_people = '" . $params['n_people'] . "' WHERE id = " . $params['id'] . ";";
+                $db->insert($sqlUpdate);
+            } else {
+                $sqlCreate = "INSERT INTO `prenotations` ( client_name, prenotation_date, hour, n_people) VALUES ('" .  $params['client_name'] . "' , '" . $params['prenotation_date'] . "' , '" . $params['hour'] . "' , '" . $params['n_people']."') ;";
+                $db->insert($sqlCreate);
+            }
+        }catch (Exception $e){
+            echo 'Non puoi ne salvare ne modificare';
+        }
     }
 
     public function read(int $id)
@@ -59,7 +90,7 @@ class Reservation
         $db = new Database;
         $sql = "SELECT * FROM `prenotations` WHERE id = $id";
         $data = $db->select($sql);
-        
+        $this->setId($data[0]['id']);
         $this->setName($data[0]['client_name']);
         $this->setPrenotation($data[0]['prenotation_date']);
         $this->setHour($data[0]['hour']);
@@ -71,10 +102,7 @@ class Reservation
     }
 
 
-    public function update(int $id, array $data)
-    {
-
-    }
+ 
 
     public function delete(int $id)
     {
