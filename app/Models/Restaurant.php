@@ -68,18 +68,20 @@ class Restaurant
             if(isset($data['id'])) {
                 unset($data['id']);
             }
-            $params = array_merge($origin , $data);
+            $params = array_merge($origin , $data??[]);
             $db = new Database;
             if($params['id']) {
                $sqlUpdate = "UPDATE `restaurant` SET name = '" . $params['name'] . "' , address = '" . $params['address'] . "' , phone = '" . $params['phone'] . "' , opening_time = '" . $params['opening_time'] . "' WHERE id = " . $params['id'] . ";";
                
-                var_dump($sqlUpdate);
+                
                 $db->insert($sqlUpdate);
+                return null;
                 
             } else {
                 $sqlCreate = "INSERT INTO `restaurant` ( name, address, phone, opening_time) VALUES ('" .  $params['name'] . "' , '" . $params['address'] . "' , '" . $params['phone'] . "' , '" . $params['opening_time']."') ;";
                 
-                $db->insert($sqlCreate);
+                return $db->create($sqlCreate);
+                
                 
             }
         }catch(Exception $e) {

@@ -66,12 +66,12 @@ class Reservation
                 'hour' => $this->hour,
                 'n_people'=> $this->n_people, 
             );
-            var_dump($origin);
+           
             if(isset($data['id'])) {
                 unset($data['id']);
             }
-            $params = array_merge($origin, $data);
-            var_dump($params);
+            $params = array_merge($origin, $data ?? []);
+            
             $db = new Database;
             if($params['id']) {
                 $sqlUpdate = "UPDATE `prenotations` SET name = '" . $params['client_name'] . "' , prenotation_date = '" . $params['prenotation_date'] . "' , hour = '" . $params['hour'] . "' , n_people = '" . $params['n_people'] . "' WHERE id = " . $params['id'] . ";";

@@ -37,6 +37,7 @@ class Database {
     public function create($query) {
         $pdo = self::getConnection();
         $pdo->exec($query);
+        return $pdo->lastInsertId();
     }
 
 

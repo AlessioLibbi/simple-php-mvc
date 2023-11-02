@@ -21,8 +21,10 @@
             <li><?php echo $restaurant->getAddress(); ?></li>
             <li><?php echo $restaurant->getPhone(); ?></li>
             <li><?php echo $restaurant->getTime(); ?></li>
+
             
         </ul>
+        <a href="<?php echo $routes->get('homepage')->getPath(); ?>">Back to homepage</a>
         <a href="<?php echo $routes->get('homepage')->getPath(); ?>">Back to homepage</a>
     <section>
 

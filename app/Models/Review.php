@@ -59,12 +59,12 @@ class Review
                 'comment' => $this->comment,
                 
             );
-            var_dump($origin);
+          
             if(isset($data['id'])) {
                 unset($data['id']);
             }
-            $params = array_merge($origin, $data);
-            var_dump($params);
+            $params = array_merge($origin, $data??[]);
+           
             $db = new Database;
             if($params['id']) {
                 $sqlUpdate = "UPDATE `votes` SET name = '" . $params['client_name'] . "' , vote = '" . $params['vote'] . "' , comment = '" . $params['comment']  . "' WHERE id = " . $params['id'] . ";";

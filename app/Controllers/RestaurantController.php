@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Controllers;
 
@@ -11,25 +11,42 @@ class RestaurantController
     public function showRestaurant(int $id, RouteCollection $routes)
     {
 
-        
         $restaurant = new Restaurant();
-        $restaurant->read($id);
 
+        if (isset($_POST['name'])) {
+            $newId = $restaurant->save(
+                array(
+                    'name' => $_POST['name'],
+                    'address' => $_POST['address'],
+                    'phone' => $_POST['phone'],
+                    'opening_time' => $_POST['opening_time']
+                )
+            );
+             
+             $id = $newId;
+        }
+
+        $restaurant->read($id);
         require_once APP_ROOT . '/views/restaurant.php';
     }
 
-    public function updateRestaurant(int $id, RouteCollection $routes) {
+    public function updateRestaurant(int $id, RouteCollection $routes)
+    {
         $restaurant = new Restaurant;
-        // $data = array(
-        //     'name' => $_GET['name'],
-        //     'address' => $_GET['address'],
-        //     'phone' => $_GET['phone'],
-        //     'opening_time' => $_GET['opening_time'],
+        if (isset($_POST['name'])) {
+            $data = array(
+                'name' => $_POST['name'],
+                'address' => $_POST['address'],
+                'phone' => $_POST['phone'],
+                'opening_time' => $_POST['opening_time'],
+                'id' => $id,
 
-        // );
-        // $restaurant->read($id);
-        // $restaurant->save($data);
+            );
+
+            $restaurant->read($id);
+            $restaurant->save($data);
+        }
+
+        require_once APP_ROOT . '/views/restaurant_edit.php';
     }
-   
-  
 }
